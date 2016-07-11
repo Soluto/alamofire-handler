@@ -13,8 +13,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7AF03B6DB0C4F13F66D1EB4E /* Pods_AlamofireHandlers_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83DF5EB230304F945F57FB3 /* Pods_AlamofireHandlers_Tests.framework */; };
+		A7A13C611D3384B1001A6486 /* AlamofireHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A13C601D3384B1001A6486 /* AlamofireHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* AlamofireHandlers_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamofireHandlers_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		A0FEE2DB6F6A9E8D65D22E2D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A7A13C601D3384B1001A6486 /* AlamofireHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHandlerTests.swift; sourceTree = "<group>"; };
 		B76B5855D4FED893A1D3FD79 /* AlamofireHandlers.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AlamofireHandlers.podspec; path = ../AlamofireHandlers.podspec; sourceTree = "<group>"; };
 		C90861CFAD92D90D88EF257B /* Pods-AlamofireHandlers_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireHandlers_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireHandlers_Tests/Pods-AlamofireHandlers_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1915BDA6B99D4B43A28A8A3 /* Pods-AlamofireHandlers_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireHandlers_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireHandlers_Example/Pods-AlamofireHandlers_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				A7A13C601D3384B1001A6486 /* AlamofireHandlerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -368,7 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				A7A13C611D3384B1001A6486 /* AlamofireHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +514,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C90861CFAD92D90D88EF257B /* Pods-AlamofireHandlers_Tests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -526,6 +528,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlamofireHandlers_Example.app/AlamofireHandlers_Example";
 			};
 			name = Debug;
 		};
@@ -533,6 +537,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0338EF27EA63962C6FE8AAD5 /* Pods-AlamofireHandlers_Tests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -541,6 +547,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlamofireHandlers_Example.app/AlamofireHandlers_Example";
 			};
 			name = Release;
 		};

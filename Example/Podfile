@@ -1,11 +1,17 @@
 use_frameworks!
 
+def testing_pods
+    pod 'Quick'
+    pod 'Nimble'
+    pod 'PromiseKit'
+end
+
 target 'AlamofireHandlers_Example' do
   pod 'AlamofireHandlers', :path => '../'
 
   target 'AlamofireHandlers_Tests' do
     inherit! :search_paths
-
+    testing_pods
     
   end
 end
