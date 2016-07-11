@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AlamofireHandlers_Example' do
+  pod 'AlamofireHandlers', :path => '../'
+
+  target 'AlamofireHandlers_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
