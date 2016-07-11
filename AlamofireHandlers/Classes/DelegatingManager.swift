@@ -23,7 +23,26 @@ public class DelegatingManager{
     }
     
     public func request(URLRequest: URLRequestConvertible) -> Promise<HttpRequestResult> {
-        return self.handler.send(URLRequest.URLRequest)
+        return self.handler.send(URLRequest.URLRequest).then({ (result) -> HttpRequestResult in
+            if let response = result.response{
+                if !(200 ... 299 ~= response.statusCode){
+                    let failureReason = "Response status code was unacceptable: \(response.statusCode)"
+                    
+                    let error = NSError(
+                        domain: Error.Domain,
+                        code: Error.Code.StatusCodeValidationFailed.rawValue,
+                        userInfo: [
+                            NSLocalizedFailureReasonErrorKey: failureReason,
+                            Error.UserInfoKeys.StatusCode: response.statusCode
+                        ]
+                    )
+                    
+                    throw error
+                }
+            }
+            
+            return result
+        })
     }
     
     func URLRequest(

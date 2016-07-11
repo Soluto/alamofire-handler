@@ -14,6 +14,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		A789A03D1D33C2AC003F3902 /* DelegatingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A03C1D33C2AC003F3902 /* DelegatingManagerTests.swift */; };
+		A789A03E1D33C2B1003F3902 /* MockHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A789A03A1D33C1CD003F3902 /* MockHandler.swift */; };
 		A7A13C611D3384B1001A6486 /* AlamofireHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A13C601D3384B1001A6486 /* AlamofireHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		607FACE51AFB9204008FA782 /* AlamofireHandlers_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamofireHandlers_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0FEE2DB6F6A9E8D65D22E2D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A789A03A1D33C1CD003F3902 /* MockHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHandler.swift; sourceTree = "<group>"; };
+		A789A03C1D33C2AC003F3902 /* DelegatingManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatingManagerTests.swift; sourceTree = "<group>"; };
 		A7A13C601D3384B1001A6486 /* AlamofireHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHandlerTests.swift; sourceTree = "<group>"; };
 		B76B5855D4FED893A1D3FD79 /* AlamofireHandlers.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AlamofireHandlers.podspec; path = ../AlamofireHandlers.podspec; sourceTree = "<group>"; };
 		C59960CE03A8CEE213E33733 /* Pods-AlamofireHandlers_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireHandlers_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireHandlers_Tests/Pods-AlamofireHandlers_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				A7A13C601D3384B1001A6486 /* AlamofireHandlerTests.swift */,
+				A789A03A1D33C1CD003F3902 /* MockHandler.swift */,
+				A789A03C1D33C2AC003F3902 /* DelegatingManagerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -369,6 +375,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7A13C611D3384B1001A6486 /* AlamofireHandlerTests.swift in Sources */,
+				A789A03E1D33C2B1003F3902 /* MockHandler.swift in Sources */,
+				A789A03D1D33C2AC003F3902 /* DelegatingManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

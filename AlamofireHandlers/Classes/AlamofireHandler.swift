@@ -15,7 +15,7 @@ public class AlamofireHandler: URLRequestHandler{
     
     public func send(request: NSMutableURLRequest) -> Promise<HttpRequestResult>{
         return Promise{fulfill, reject in
-            self.manager.request(request).validate().response{(request, response, data, err) in
+            self.manager.request(request).response{(request, response, data, err) in
                 if let error = err {
                     reject(error)
                 }

@@ -7,7 +7,7 @@ public struct HttpRequestResult {
     public let response: NSHTTPURLResponse?
     public let data: NSData?
     
-    init(request: NSURLRequest?, response: NSHTTPURLResponse?, data: NSData?){
+    public init(request: NSURLRequest?, response: NSHTTPURLResponse?, data: NSData?){
         self.request = request
         self.response = response
         self.data = data
