@@ -38,6 +38,6 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Alamofire', '~> 3.4'
-  s.dependency 'RxSwift', '~> 2.6'
+  s.dependency 'Alamofire', '~> 3.0'
+  s.dependency 'RxSwift', '~> 2.0'
 end
