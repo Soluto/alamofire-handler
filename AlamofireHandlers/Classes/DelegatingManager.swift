@@ -1,6 +1,6 @@
 import Foundation
 import Alamofire
-import PromiseKit
+import RxSwift
 
 public class DelegatingManager{
     let handler: URLRequestHandler
@@ -15,15 +15,15 @@ public class DelegatingManager{
           parameters: [String: AnyObject]? = nil,
           encoding: ParameterEncoding = .URL,
           headers: [String: String]? = nil)
-        -> Promise<HttpRequestResult>
+        -> Observable<HttpRequestResult>
     {
         let mutableURLRequest = URLRequest(method, URLString, headers: headers)
         let encodedURLRequest = encoding.encode(mutableURLRequest, parameters: parameters).0
         return self.request(encodedURLRequest)
     }
     
-    public func request(URLRequest: URLRequestConvertible) -> Promise<HttpRequestResult> {
-        return self.handler.send(URLRequest.URLRequest).then({ (result) -> HttpRequestResult in
+    public func request(URLRequest: URLRequestConvertible) -> Observable<HttpRequestResult> {
+        return self.handler.send(URLRequest.URLRequest).map({ result in
             if let response = result.response{
                 if !(200 ... 299 ~= response.statusCode){
                     let failureReason = "Response status code was unacceptable: \(response.statusCode)"

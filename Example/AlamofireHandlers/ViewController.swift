@@ -15,9 +15,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         let manager = DelegatingManager(handler: AlamofireHandler())
-        manager.request(.GET, "https://httpbin.org/headers").then { (result) -> Bool in
+        manager.request(.GET, "https://httpbin.org/headers").subscribeNext { result in
             print(result.serializeString())
-            return true
         }
     }
 

@@ -3,7 +3,8 @@ use_frameworks!
 def testing_pods
     pod 'Quick'
     pod 'Nimble'
-    pod 'PromiseKit/CorePromise'
+    pod 'RxSwift'
+    pod 'RxBlocking'
 end
 
 target 'AlamofireHandlers_Example' do

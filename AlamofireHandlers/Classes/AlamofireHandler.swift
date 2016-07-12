@@ -1,6 +1,6 @@
 import Foundation
 import Alamofire
-import PromiseKit
+import RxSwift
 
 public class AlamofireHandler: URLRequestHandler{
     let manager: Manager
@@ -13,14 +13,19 @@ public class AlamofireHandler: URLRequestHandler{
         self.init(manager: Manager.sharedInstance)
     }
     
-    public func send(request: NSMutableURLRequest) -> Promise<HttpRequestResult>{
-        return Promise{fulfill, reject in
-            self.manager.request(request).response{(request, response, data, err) in
+    public func send(request: NSMutableURLRequest) -> Observable<HttpRequestResult>{
+        return Observable.create{observer in
+            let request = self.manager.request(request).response{(request, response, data, err) in
                 if let error = err {
-                    reject(error)
+                    observer.onError(error)
                 }
                 
-                fulfill(HttpRequestResult(request: request, response: response, data: data))
+                observer.onNext(HttpRequestResult(request: request, response: response, data: data))
+                observer.onCompleted()
+            }
+            
+            return AnonymousDisposable {
+                request.cancel()
             }
         }
         

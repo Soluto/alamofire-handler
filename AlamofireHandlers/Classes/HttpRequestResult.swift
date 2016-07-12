@@ -1,6 +1,5 @@
 import Foundation
 import Alamofire
-import PromiseKit
 
 public struct HttpRequestResult {
     public let request: NSURLRequest?

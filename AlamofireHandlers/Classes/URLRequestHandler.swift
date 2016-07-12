@@ -1,6 +1,6 @@
 import Foundation
-import PromiseKit
+import RxSwift
 
 public protocol URLRequestHandler{
-    func send(request: NSMutableURLRequest) -> Promise<HttpRequestResult>
+    func send(request: NSMutableURLRequest) -> Observable<HttpRequestResult>
 }
