@@ -1,4 +1,5 @@
 use_frameworks!
+platform :ios, '9.0'
 
 def testing_pods
     pod 'Quick'
@@ -13,6 +14,6 @@ target 'AlamofireHandlers_Example' do
   target 'AlamofireHandlers_Tests' do
     inherit! :search_paths
     testing_pods
-    
+
   end
 end

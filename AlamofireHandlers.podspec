@@ -28,16 +28,16 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'http://git.soluto.local/Soluto/alamofire-handler.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'AlamofireHandlers/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'AlamofireHandlers' => ['AlamofireHandlers/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Alamofire', '~> 3.0'
-  s.dependency 'RxSwift', '~> 2.0'
+  s.dependency 'Alamofire', '~> 4.0'
+  s.dependency 'RxSwift', '~> 3.0.0.alpha'
 end

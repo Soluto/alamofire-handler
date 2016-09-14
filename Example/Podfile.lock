@@ -1,13 +1,13 @@
 PODS:
-  - Alamofire (3.4.1)
-  - AlamofireHandlers (0.1.2):
-    - Alamofire (~> 3.4)
-    - RxSwift (~> 2.6)
+  - Alamofire (4.0.0)
+  - AlamofireHandlers (0.3.0):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 3.0.0.alpha)
   - Nimble (4.1.0)
-  - Quick (0.9.2)
-  - RxBlocking (2.6.0):
-    - RxSwift (~> 2.5)
-  - RxSwift (2.6.0)
+  - Quick (0.9.3)
+  - RxBlocking (1.9):
+    - RxSwift
+  - RxSwift (3.0.0.alpha.1)
 
 DEPENDENCIES:
   - AlamofireHandlers (from `../`)
@@ -18,16 +18,16 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   AlamofireHandlers:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  AlamofireHandlers: e13f2bbac56a241018ef765e54e17e2eaee68e90
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  AlamofireHandlers: '0438f9f68cb3f3f41f2bbf30e0d1cfd6ff8bd8cb'
   Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
-  RxBlocking: f2e0a7e74d5e9d3029d2b1118e2af01f583fbdd8
-  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
+  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
+  RxBlocking: c3b5b6e453c003d7985b9fa285927587abf0c8dd
+  RxSwift: 0bccfee1e979c1b72a5d1dffdf96119303b5d111
 
-PODFILE CHECKSUM: d14b88415aa3e2d9c7f5963bb7656430c248bd8b
+PODFILE CHECKSUM: c9be2929096a5afe279e20b1c8161aacbe2cf6f7
 
 COCOAPODS: 1.0.1
