@@ -10,7 +10,7 @@ import AlamofireHandlers
 import RxSwift
 
 class ViewController: UIViewController {
-    private let bag : DisposeBag = { return DisposeBag() }()
+    fileprivate let bag : DisposeBag = { return DisposeBag() }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
