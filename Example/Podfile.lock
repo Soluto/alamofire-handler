@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.0.0)
   - AlamofireHandlers (0.3.0):
     - Alamofire (~> 4.0)
-    - RxSwift
+    - RxSwift (~> 3.0.0-beta.1)
   - Nimble (4.1.0)
   - Quick (0.9.3)
   - RxBlocking (1.9):
@@ -14,28 +14,19 @@ DEPENDENCIES:
   - Nimble
   - Quick
   - RxBlocking
-  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, commit `749800f`)
 
 EXTERNAL SOURCES:
   AlamofireHandlers:
     :path: "../"
-  RxSwift:
-    :commit: 749800f
-    :git: https://github.com/ReactiveX/RxSwift.git
-
-CHECKOUT OPTIONS:
-  RxSwift:
-    :commit: 749800f
-    :git: https://github.com/ReactiveX/RxSwift.git
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
-  AlamofireHandlers: 05cfe90264b073b7e0366d26a0bc6f49dd21227e
+  AlamofireHandlers: 2a5191dbf8b99ab455ae2219832a9977a193d79d
   Nimble: 97a0a4cae5124c117115634b2d055d8c97d0af19
   Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
   RxBlocking: c3b5b6e453c003d7985b9fa285927587abf0c8dd
   RxSwift: '0823e8d7969c23bfa9ddfb2afa4881e424a1a710'
 
-PODFILE CHECKSUM: b3b2e8a8a3c60e82f600d7c5847bb29ee0671877
+PODFILE CHECKSUM: 9d8eb50ed4b1baacd93486109a00d5d37dffaabd
 
 COCOAPODS: 1.0.1

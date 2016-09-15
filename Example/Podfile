@@ -8,7 +8,6 @@ def testing_pods
 end
 
 target 'AlamofireHandlers_Example' do
-  pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :commit => '749800f'
   pod 'AlamofireHandlers', :path => '../'
 
   target 'AlamofireHandlers_Tests' do
