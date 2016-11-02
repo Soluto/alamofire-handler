@@ -2,32 +2,27 @@ import Foundation
 import Alamofire
 import RxSwift
 
-public class AlamofireHandler: URLRequestHandler{
-    let manager: Manager
+public class AlamofireHandler: URLRequestHandler {
+    let manager: SessionManager
     
-    public init(manager: Manager){
+    public init(manager: SessionManager) {
         self.manager = manager
     }
     
-    public convenience init(){
-        self.init(manager: Manager.sharedInstance)
-    }
-    
-    public func send(request: NSMutableURLRequest) -> Observable<HttpRequestResult>{
+    public func send(request: URLRequest) -> Observable<DefaultDataResponse>{
         return Observable.create{observer in
-            let request = self.manager.request(request).response{(request, response, data, err) in
-                if let error = err {
-                    observer.onError(error)
+            let request = self.manager
+                .request(request)
+                .validate()
+                .response { response in
+                    if let error = response.error {
+                        observer.onError(error)
+                    }
+                    observer.onNext(response)
+                    observer.onCompleted()
                 }
-                
-                observer.onNext(HttpRequestResult(request: request, response: response, data: data))
-                observer.onCompleted()
-            }
             
-            return AnonymousDisposable {
-                request.cancel()
-            }
+            return Disposables.create(with: { request.cancel() })
         }
-        
     }
 }

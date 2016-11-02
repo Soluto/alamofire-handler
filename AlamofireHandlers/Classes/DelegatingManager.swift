@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 import RxSwift
 
-public class DelegatingManager{
+public class DelegatingManager {
     let handler: URLRequestHandler
     
     public init(handler: URLRequestHandler){
@@ -10,56 +10,27 @@ public class DelegatingManager{
     }
     
     public func request(
-        method: Alamofire.Method,
-        _ URLString: URLStringConvertible,
-          parameters: [String: AnyObject]? = nil,
-          encoding: ParameterEncoding = .URL,
-          headers: [String: String]? = nil)
-        -> Observable<HttpRequestResult>
+        _ urlString: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters:  Parameters? = nil,
+        encoding: ParameterEncoding = URLEncoding.default,
+        headers: HTTPHeaders? = nil)
+        -> Observable<DefaultDataResponse>
     {
-        let mutableURLRequest = URLRequest(method, URLString, headers: headers)
-        let encodedURLRequest = encoding.encode(mutableURLRequest, parameters: parameters).0
-        return self.request(encodedURLRequest)
-    }
-    
-    public func request(URLRequest: URLRequestConvertible) -> Observable<HttpRequestResult> {
-        return self.handler.send(URLRequest.URLRequest).map({ result in
-            if let response = result.response{
-                if !(200 ... 299 ~= response.statusCode){
-                    let failureReason = "Response status code was unacceptable: \(response.statusCode)"
-                    
-                    let error = NSError(
-                        domain: Error.Domain,
-                        code: Error.Code.StatusCodeValidationFailed.rawValue,
-                        userInfo: [
-                            NSLocalizedFailureReasonErrorKey: failureReason,
-                            Error.UserInfoKeys.StatusCode: response.statusCode
-                        ]
-                    )
-                    
-                    throw error
-                }
-            }
-            
-            return result
-        })
-    }
-    
-    func URLRequest(
-        method: Alamofire.Method,
-        _ URLString: URLStringConvertible,
-          headers: [String: String]? = nil)
-        -> NSMutableURLRequest
-    {
-        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: URLString.URLString)!)
-        mutableURLRequest.HTTPMethod = method.rawValue
-        
-        if let headers = headers {
-            for (headerField, headerValue) in headers {
-                mutableURLRequest.setValue(headerValue, forHTTPHeaderField: headerField)
-            }
+        do {
+            let urlRequest = try URLRequest(url: urlString, method: method, headers: headers)
+            let encodedURLRequest = try encoding.encode(urlRequest, with: parameters)
+            return request(encodedURLRequest)
+        } catch {
+            return Observable.error(error)
         }
-        
-        return mutableURLRequest
+    }
+    
+    open func request(_ urlRequest: URLRequest) -> Observable<DefaultDataResponse> {
+        do {
+            return self.handler.send(request: urlRequest)
+        } catch {
+            return Observable.error(error)
+        }
     }
 }

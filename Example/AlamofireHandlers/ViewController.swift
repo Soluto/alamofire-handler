@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Omer Levi Hevroni. All rights reserved.
 //
 import UIKit
+import Alamofire
 import AlamofireHandlers
 import RxSwift
 
@@ -15,11 +16,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        let manager = DelegatingManager(handler: AlamofireHandler())
-        manager.request(.GET, "https://httpbin.org/headers").subscribeNext { result in
-            print(result.serializeString())
-        }.addDisposableTo(bag)
+        let innerManager = SessionManager()
+        let manager = DelegatingManager(handler: AlamofireHandler(manager: innerManager))
+        manager.request("https://httpbin.org/headers").subscribe(onNext: { result in
+            print(result.asString())
+        }).addDisposableTo(bag)
     }
 
     override func didReceiveMemoryWarning() {
