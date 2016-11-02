@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  AlamofireHandlers
-//
-//  Created by Omer Levi Hevroni on 07/11/2016.
-//  Copyright (c) 2016 Omer Levi Hevroni. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
