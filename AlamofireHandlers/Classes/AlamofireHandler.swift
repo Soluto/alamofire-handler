@@ -13,7 +13,6 @@ public class AlamofireHandler: URLRequestHandler {
         return Observable.create{observer in
             let request = self.manager
                 .request(request)
-                .validate()
                 .response { response in
                     if let error = response.error {
                         observer.onError(error)
