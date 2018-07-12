@@ -1,28 +1,7 @@
 # AlamofireHandlers
 
-[![CI Status](http://img.shields.io/travis/Omer Levi Hevroni/AlamofireHandlers.svg?style=flat)](https://travis-ci.org/Omer Levi Hevroni/AlamofireHandlers)
-[![Version](https://img.shields.io/cocoapods/v/AlamofireHandlers.svg?style=flat)](http://cocoapods.org/pods/AlamofireHandlers)
-[![License](https://img.shields.io/cocoapods/l/AlamofireHandlers.svg?style=flat)](http://cocoapods.org/pods/AlamofireHandlers)
-[![Platform](https://img.shields.io/cocoapods/p/AlamofireHandlers.svg?style=flat)](http://cocoapods.org/pods/AlamofireHandlers)
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-## Installation
-
-AlamofireHandlers is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "AlamofireHandlers"
-```
-
-## Author
-
-Omer Levi Hevroni, omerl@soluto.com
+A small AlamofireHandler extension that allows to use chain mechanism when building requests.
+Inspired by [OkHttpClient interceptor](https://github.com/square/okhttp/wiki/Interceptors) mechanism.
 
 ## License
 
