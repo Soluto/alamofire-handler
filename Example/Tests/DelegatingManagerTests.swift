@@ -17,10 +17,10 @@ class DelegatingManagerTests: XCTestCase {
     }
     
     func testRequest_ValidRequest_HandlerCalledWithCorrectRequest() throws {
-        handler.result = DefaultDataResponse(request: nil, response: nil, data: nil)
+		handler.result = DefaultDataResponse(request: nil, response: nil, data: nil, error: nil)
         let request = URLRequest(url: URL(string: "blah")!)
         
-        try manager.request(request).toBlocking().single()
+        _ = try manager.request(request).toBlocking().single()
         
         expect(self.handler.lastRequest).to(equal(request))
 
@@ -32,13 +32,4 @@ class DelegatingManagerTests: XCTestCase {
 
         expect(try self.manager.request(request).toBlocking().single()).to(throwError())
     }
-    
-    func testRequest_InvalidStatusCodeReturned_RaisedError() throws {
-        let response =  HTTPURLResponse.init(url: URL(fileURLWithPath: "http://www.google.com"), statusCode: 400, httpVersion: nil, headerFields: nil)!
-        handler.result = DefaultDataResponse(request: nil, response: response, data: nil)
-        let request = URLRequest(url: URL(string: "blah")!)
-        
-        expect(try self.manager.request(request).toBlocking().single()).to(throwError())
-    }
-    
 }

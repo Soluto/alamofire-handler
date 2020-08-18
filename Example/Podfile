@@ -1,6 +1,12 @@
 platform :ios, '9.0'
 
+source 'https://github.com/cocoapods/specs'
+
+# flag makes all dependencies build as frameworks
 use_frameworks!
+
+# flag to ignore warnings from all dependencies
+inhibit_all_warnings!
 
 def shared_pods
   pod 'AlamofireHandlers', :path => '../'
@@ -9,7 +15,7 @@ end
 def testing_pods
     pod 'Quick'
     pod 'Nimble', '=7.0.1'
-    pod 'RxBlocking'
+    pod 'RxBlocking', '~> 3.6.0'
 end
 
 target 'AlamofireHandlers_Example' do
