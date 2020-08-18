@@ -1,9 +1,9 @@
 PODS:
   - Alamofire (4.0.1)
-  - AlamofireHandlers (1.0.0):
+  - AlamofireHandlers (1.0.1):
     - Alamofire (~> 4.0)
     - RxSwift (~> 3.0.0)
-  - Nimble (5.1.1)
+  - Nimble (7.0.1)
   - Quick (0.10.0)
   - RxBlocking (3.0.0):
     - RxSwift (~> 3.0)
@@ -11,9 +11,17 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireHandlers (from `../`)
-  - Nimble
+  - Nimble (= 7.0.1)
   - Quick
   - RxBlocking
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Nimble
+    - Quick
+    - RxBlocking
+    - RxSwift
 
 EXTERNAL SOURCES:
   AlamofireHandlers:
@@ -21,12 +29,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  AlamofireHandlers: 81becc2a2fd7d752881945bf258be77aed76b5a4
-  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  AlamofireHandlers: 46dab794a9fd0587c2ea0b977a9fe57753c8f4ea
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
   RxBlocking: 0132c660340d8b8f34b65b2e099167ea6134eecf
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
 
-PODFILE CHECKSUM: 9d8eb50ed4b1baacd93486109a00d5d37dffaabd
+PODFILE CHECKSUM: 1f7f9fc8405a60666d8635ee8e08e52c64322685
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.9.3

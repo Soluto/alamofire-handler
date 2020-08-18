@@ -1,5 +1,6 @@
 import XCTest
 import Nimble
+import Alamofire
 import AlamofireHandlers
 import RxSwift
 import RxBlocking
@@ -9,20 +10,20 @@ class AlamofireHandlerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        handler = AlamofireHandler()
+		handler = AlamofireHandler(manager: SessionManager())
     }
     
     func testSend_ValidRequest_ReturnValidResponse() throws{
-        let request = NSMutableURLRequest(url: URL(string: "https://httpbin.org/status/200")!)
-        request.httpMethod = "GET"
-        let result = try handler.send(request).toBlocking().single()
+        var request = URLRequest(url: URL(string: "https://httpbin.org/status/200")!)
+		request.httpMethod = HTTPMethod.get.rawValue
+		let result = try handler.send(request: request).toBlocking().single()
         expect(result?.response?.statusCode).toEventually(equal(200))
     }
     
     func testSend_BadRequest_ReturnError() {
-        let request = NSMutableURLRequest(url: URL(string: "omerl://httpbin.org/status/200")!)
-        request.httpMethod = "GET"
-        expect(try self.handler.send(request).toBlocking().single()).to(throwError())
+        var request = URLRequest(url: URL(string: "omerl://httpbin.org/status/200")!)
+        request.httpMethod = HTTPMethod.get.rawValue
+		expect(try self.handler.send(request: request).toBlocking().single()).to(throwError())
 
     }
 }

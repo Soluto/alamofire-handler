@@ -17,8 +17,8 @@ class DelegatingManagerTests: XCTestCase {
     }
     
     func testRequest_ValidRequest_HandlerCalledWithCorrectRequest() throws {
-        handler.result = HttpRequestResult(request: nil, response: nil, data: nil)
-        let request = NSMutableURLRequest(url: URL(string: "blah")!)
+        handler.result = DefaultDataResponse(request: nil, response: nil, data: nil)
+        let request = URLRequest(url: URL(string: "blah")!)
         
         try manager.request(request).toBlocking().single()
         
@@ -28,16 +28,15 @@ class DelegatingManagerTests: XCTestCase {
     
     func testRequest_ValidRequestButHandlerFailed_ReturnError() throws {
         handler.error = NSError(domain: "", code: 9, userInfo: nil)
-        let request = NSMutableURLRequest(url: URL(string: "blah")!)
-        
+        let request = URLRequest(url: URL(string: "blah")!)
 
         expect(try self.manager.request(request).toBlocking().single()).to(throwError())
     }
     
     func testRequest_InvalidStatusCodeReturned_RaisedError() throws {
         let response =  HTTPURLResponse.init(url: URL(fileURLWithPath: "http://www.google.com"), statusCode: 400, httpVersion: nil, headerFields: nil)!
-        handler.result = HttpRequestResult(request: nil, response: response, data: nil)
-        let request = NSMutableURLRequest(url: URL(string: "blah")!)
+        handler.result = DefaultDataResponse(request: nil, response: response, data: nil)
+        let request = URLRequest(url: URL(string: "blah")!)
         
         expect(try self.manager.request(request).toBlocking().single()).to(throwError())
     }
