@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.author       = { "Soluto" => "omerl@soluto.com" }
 
   s.platform     = :ios, "9.0"
+  s.swift_versions = ['4.2']
 
   s.source       = { :git => 'http://git.soluto.local/Soluto/alamofire-handler.git', :tag => s.version.to_s }
   s.source_files = "AlamofireHandlers/Classes/**/*"
