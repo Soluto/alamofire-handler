@@ -17,7 +17,7 @@ class AlamofireHandlerTests: XCTestCase {
         var request = URLRequest(url: URL(string: "https://httpbin.org/status/200")!)
 		request.httpMethod = HTTPMethod.get.rawValue
 		let result = try handler.send(request: request).toBlocking().single()
-        expect(result?.response?.statusCode).toEventually(equal(200))
+        expect(result.response?.statusCode).toEventually(equal(200))
     }
     
     func testSend_BadRequest_ReturnError() {
